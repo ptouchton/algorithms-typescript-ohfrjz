@@ -14,11 +14,12 @@ import './style.css';
       breadCrumbs[arr[i]] = true;
     }
   }
-  console.log(breadCrumbs);
-  console.log(result);
+  // console.log(breadCrumbs);
+  // console.log(result);
   
   return result.sort((a,b) => a - b);
 
 }
 
-uniqSort([4,2,2,3,2,2,2]);
+let ret = uniqSort([4,2,2,3,2,2,2]);
+console.log(ret);
