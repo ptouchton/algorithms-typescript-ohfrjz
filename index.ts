@@ -1,10 +1,6 @@
 // Task 1: Write a function, times10, that takes an argument, n, and multiples n times 10
 // a simple multiplication fn
-export function times10(n: number): number {
-
-  return n*10;
-
-};
+const times10 = (n: number): number => n*10
 
 console.log('~~~~~~~~~~~~~~TASK 1~~~~~~~~~~~~~~');
 console.log('times10 returns:', times10(9));
@@ -13,16 +9,15 @@ console.log('times10 returns:', times10(9));
 // protip 1: Create a function that checks if the value for n has been calculated before.
 // protip 2: If the value for n has not been calculated, calculate and then save the result in the cache object.
 
-let timesTen = times10(9);
 const cache: Object = {};
-cache[timesTen] = true;
 
-export function memoTimes10(n: number): number {
-  let res: number = times10(n);
-  if (!cache[res]) cache[res] = true;
+const memoTimes10 = (n: number): number => {
+  
+  //let res: number = times10(n);
+  if (!cache[n]) cache[n] = times10(n);
   
   console.log(cache)
-  return cache[res];
+  return cache[n];
 
 }
 
