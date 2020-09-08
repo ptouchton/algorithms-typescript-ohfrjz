@@ -1,15 +1,14 @@
 const computeFactorial = (num: number) => {
-  let result: number = 1;
-
   
-  for (let i = 1; i <= num; i++) {
-
-    console.log(`result =  ${result} * ${i} (${result * i})`)
-
-    result *= i;
+  if (num = 1) {
+    console.log('hit base value')
+    return 1;
+  }else {
+    console.log(`returning ${num} * computeFactorial(${num-1})`)
+    let result = num * computeFactorial(num -1);
+    return result;
   }
 
-  return result;
 }
 
 
