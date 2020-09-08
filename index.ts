@@ -1,24 +1,17 @@
-const timesN = (() => {
-  return (n: number) => {
-    console.log('im in') 
-    return n * 10
-    }
-  })();
+const computeFactorial = (num: number) => {
+  let result: number = 1;
 
-const memoize = (cb: any) => (() => {
-  let cache: Object = {};
-
-  return (n: number) => {
- 
-    if (!cache[n]) cache[n] = cb(n);
   
-    console.log(cache)
-    return cache[n];
+  for (let i = 1; i <= num; i++) {
+
+    console.log(`result =  ${result} * ${i} (${result * i})`)
+
+    result *= i;
   }
 
-})();
+  return result;
+}
 
-const memoTimes10 = memoize(timesN);
-console.log('~~~~~~~~~~~~~~TASK 2~~~~~~~~~~~~~~');
-console.log('Task 2 calculated value:', memoTimes10(9));	// calculated
-console.log('Task 2 cached value:', memoTimes10(9));	// cached
+
+let res: number = computeFactorial(5);
+console.log(res);
