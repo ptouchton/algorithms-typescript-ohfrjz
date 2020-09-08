@@ -1,12 +1,11 @@
 const computeFactorial = (num: number) => {
   
-  if (num = 1) {
+  if (num === 1) {
     console.log('hit base value')
     return 1;
   }else {
     console.log(`returning ${num} * computeFactorial(${num-1})`)
-    let result = num * computeFactorial(num -1);
-    return result;
+    return num * computeFactorial(num -1);
   }
 
 }
