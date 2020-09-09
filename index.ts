@@ -18,11 +18,11 @@ const bubbleSort = (list: Array<number>): Array<number> => {
   };
   
 
-  console.log(list);
-  return res;
+  //console.log(list);
+  return list;
 
 }
 
-
-let res: Array<number> = bubbleSort([7,2,9,4,3,10,5]);
+//[9, 2, 5, 6, 4, 3, 7, 10, 1, 8]; [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; //[10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+let res: Array<number> = bubbleSort([10, 9, 8, 7, 6, 5, 4, 3, 2, 1]);
 console.log(res)
