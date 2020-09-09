@@ -5,9 +5,16 @@ const mergeSort = (list: Array<number>): Array<number> => {
   let arrSplit = Math.floor(list.length) / 2;
   console.log(arrSplit);
   let lArr = list.slice(0,arrSplit);
+  //check array for single value
+  if (lArr.length > 1) {
+    let lArr2 = mergeSort(lArr);
+  }
+  
+
   let rArr = list.slice(arrSplit+1,list.length)
   console.log(`lArr: ${lArr} | rArr: ${rArr}`);
   
+  //check if array = 1 
   //console.log(list);
   return list;
 
