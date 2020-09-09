@@ -1,15 +1,14 @@
-const computeFactorial = (num: number) => {
+const linearSearch = (list: Array<number>,num: number) => {
   
-  if (num === 1) {
-    console.log('hit base value')
-    return 1;
-  }else {
-    console.log(`returning ${num} * computeFactorial(${num-1})`)
-    return num * computeFactorial(num -1);
-  }
+   for (let i of list) {
+     console.log(i);
+     if (i === num) {
+       console.log(`found ${num}`);
+       return;
+     }
+   } 
 
 }
 
 
-let res: number = computeFactorial(5);
-console.log(res);
+linearSearch([2,6,7,90,103], 90);
