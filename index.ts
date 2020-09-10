@@ -1,25 +1,37 @@
-// Import stylesheets
-import './style.css';
 
- export function uniqSort(arr: Array<number>): Array<number> {
+const makeChange = (amount: number): number => {
 
-  const breadCrumbs: Object = {};
-  let result: Array<number> = [arr[0]];
+  const vals: Array<number> = [5,10,25];
+  let amt: number = amount;
+  let res: number = 0;
 
-  for (let i of arr) {
+  for(let i = vals.length-1; i >= 0; i-- ){
 
-    if (!breadCrumbs[arr[i]]) {
+    amt -= vals[i];
+    //console.log(amt);
 
-      result.push(arr[i]);
-      breadCrumbs[arr[i]] = true;
-    }
+    res++;
+    //console.log(res);
+    
+    console.log(`div ${amt % 5}`)
+    if (amt === 0 || (amt % 5) !== 0) break;
   }
-  // console.log(breadCrumbs);
-  // console.log(result);
-  
-  return result.sort((a,b) => a - b);
 
+  console.log(res);
+  return res;
 }
 
-let ret = uniqSort([4,2,2,3,2,2,2]);
-console.log(ret);
+
+makeChange(36);
+///makeChange(35);
+
+// Write a function, makeChange, that returns an integer that represents the least number of coins that add up to an amount where the amount is always divisible by 5.
+
+
+// coin values: 5, 10, 25
+
+
+
+// input amount: 40 , output # of coins: 3 (25, 10, 5)
+
+// input amount: 35, output # of coins: 2 (25, 10) 
