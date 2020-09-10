@@ -1,20 +1,19 @@
 
-const makeChange = (amount: number): number => {
+const makeChange = (coins: Array<number> ,amount: number): number => {
 
-  const vals: Array<number> = [5,10,25];
-  let amt: number = amount;
+  coins.sort((a,b) => b - a);
   let res: number = 0;
+  let i: number = 0;
 
-  for(let i = vals.length-1; i >= 0; i-- ){
+  while(amount > 0){
+   
+   if (coins[i] <= amount) {
+     amount -= coins[i];
+     res++;
+   } else{
+     i++;
+   }
 
-    amt -= vals[i];
-    //console.log(amt);
-
-    res++;
-    //console.log(res);
-    
-    console.log(`div ${amt % 5}`)
-    if (amt === 0 || (amt % 5) !== 0) break;
   }
 
   console.log(res);
@@ -22,7 +21,7 @@ const makeChange = (amount: number): number => {
 }
 
 
-makeChange(36);
+makeChange([5,10,25],40);
 ///makeChange(35);
 
 // Write a function, makeChange, that returns an integer that represents the least number of coins that add up to an amount where the amount is always divisible by 5.
