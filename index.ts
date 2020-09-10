@@ -25,28 +25,38 @@ const bubbleSort = (list: Array<number>): Array<number> => {
 
 }
 
-const mergeSort = (list: Array<number>): Array<number> => {
-  let res: Array<number>;
+function merge (left, right) {
+  let result = []
+  let indexLeft = 0
+  let indexRight = 0
+
+  while (indexLeft < left.length && indexRight < right.length) {
+    if (left[indexLeft] < right[indexRight]) {
+      result.push(left[indexLeft])
+      indexLeft++
+    } else {
+      result.push(right[indexRight])
+      indexRight++
+    }
+  }
   
+  console.log(result.concat(left.slice(indexLeft)).concat(right.slice(indexRight)))
+  return result.concat(left.slice(indexLeft)).concat(right.slice(indexRight))
+}
+
+const mergeSort = (list: Array<number>): Array<number> => {
+
+  if (list.length === 1) return list;
+
   //split the array into 2
   let arrSplit = Math.floor(list.length) / 2;
   let lArr = list.slice(0,arrSplit);
-
-  //check array for single value
-  if (lArr.length > 1) {
-    lArr = mergeSort(lArr);
-  }
-  
-
   let rArr = list.slice(arrSplit,list.length)
-  
-  if (rArr.length > 1) {
-    rArr = mergeSort(rArr);
-  }
-
+  lArr = mergeSort(lArr);
+  rArr = mergeSort(rArr);
   
   //sort l & r
-  list = bubbleSort([...lArr,...rArr]);
+  list = merge(lArr,rArr);
 
   return list;
 
