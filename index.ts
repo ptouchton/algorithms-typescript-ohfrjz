@@ -1,6 +1,6 @@
 const bubbleSort = (list: Array<number>): Array<number> => {
 
-  console.log(`bubble: ${list}`);
+  //console.log(`bubble: ${list}`);
   let res: Array<number>;
   let stillStuff = true;
   
@@ -30,9 +30,7 @@ const mergeSort = (list: Array<number>): Array<number> => {
   
   //split the array into 2
   let arrSplit = Math.floor(list.length) / 2;
-  console.log(arrSplit);
   let lArr = list.slice(0,arrSplit);
-  console.log(`lArr: ${lArr}`);
 
   //check array for single value
   if (lArr.length > 1) {
@@ -41,7 +39,6 @@ const mergeSort = (list: Array<number>): Array<number> => {
   
 
   let rArr = list.slice(arrSplit,list.length)
-  console.log(`lArr: ${lArr} | rArr: ${rArr}`);
   
   if (rArr.length > 1) {
     rArr = mergeSort(rArr);
@@ -51,8 +48,6 @@ const mergeSort = (list: Array<number>): Array<number> => {
   //sort l & r
   list = bubbleSort([...lArr,...rArr]);
 
-  //check if array = 1 
-  //console.log(list);
   return list;
 
 }
