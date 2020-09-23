@@ -1,15 +1,7 @@
-const computeFactorial = (num: number) => {
-  
-  if (num === 1) {
-    console.log('hit base value')
-    return 1;
-  }else {
-    console.log(`returning ${num} * computeFactorial(${num-1})`)
-    return num * computeFactorial(num -1);
-  }
-
+export default function add(x: number): any {
+  const fn = (y: number) => add(x + y);
+  fn.valueOf = () => x;
+  return fn;
 }
-
-
-let res: number = computeFactorial(5);
+let res: number = add(1)(2)(3);
 console.log(res);
